@@ -1,0 +1,39 @@
+replicaCount: 3
+
+image:
+  repository: volemeo/echo_server
+  pullPolicy: Always
+  tag: latest
+
+author: "kolyan"
+
+containerPort: 8000
+
+livenessProbe:
+  path: /
+  port: 8000
+  initialDelaySeconds: 5
+  periodSeconds: 10
+
+readinessProbe:
+  path: /
+  port: 8000
+  initialDelaySeconds: 2
+  periodSeconds: 5
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  enabled: true
+  host: myapp.local
+
+imagePullSecrets:
+  - name: myregistrykey
+
+dockerRegistry:
+  username: volemeo
+  password: ***
+  registry: https://index.docker.io/v1/
+

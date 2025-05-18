@@ -1,0 +1,8 @@
+image_name: "volemeo/echo_server"
+container_base_name: myweb
+container_count: 3
+
+container_port: 8000
+container_host_port: 9001
+nginx_listen_port: 80
+

@@ -1,0 +1,9 @@
+- name: Deploy Web Application with Docker and Nginx Load Balancer
+  hosts: localhost
+  become: true
+  vars_files:
+    - ./inventories/localhost/group_vars/webapp.yml
+    - ./inventories/localhost/group_vars/secrets.yml
+  roles:
+    - webapp
+
